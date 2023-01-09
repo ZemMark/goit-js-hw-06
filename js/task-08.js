@@ -9,20 +9,27 @@ form.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  if (inputEmail.value === "") {
-    alert("please fill the email field!");
-  } else if (inputPassword === "") {
+  // if (inputEmail.value === "") {
+  //   alert("please fill the email field!");
+  // } else if (inputPassword === "") {
+  // alert("please fill the password field!");
+  // }
+  if (inputEmail.value === "" || inputPassword.value === "") {
     alert("please fill the password field!");
   }
+  formDataShow();
+  form.reset();
+  // formData.forEach((email, password) => {
+  //   console.log(`email: ${email}, password: ${password}`);
+  // });
+}
+
+function formDataShow() {
   const loginData = {
     email: `${inputEmail.value}`,
     password: `${inputPassword.value}`,
   };
   console.log(loginData);
-  form.reset();
-  // formData.forEach((email, password) => {
-  //   console.log(`email: ${email}, password: ${password}`);
-  // });
 }
 
 // buttonSubmit.addEventListener("click", onButtonSubmitClick);
