@@ -19,14 +19,13 @@ refs.increment.addEventListener("click", onIncrementClick);
 let counterValue = 0;
 function onDecrementClick() {
   // counter.increase();
-  counterValue += 1;
   // refs.value.textContent = counter.value;
+  counterValue += 1;
   refs.value.textContent = counterValue;
 }
 function onIncrementClick() {
   // counter.decrease();
+  // refs.value.textContent = counter.value;
   counterValue -= 1;
   refs.value.textContent = counterValue;
-
-  // refs.value.textContent = counter.value;
 }
