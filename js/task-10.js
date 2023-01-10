@@ -69,7 +69,7 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 const onCreateClick = function () {
-  boxesContainer.innerHTML = makeDiv();
+  boxesContainer.insertAdjacentHTML("beforeend", makeDiv());
 };
 const onDestroyClick = () => {
   boxesContainer.innerHTML = "";
@@ -87,7 +87,7 @@ const makeDiv = function (e) {
   makeIterationCountArray();
   return iterationArray
     .map((el) => {
-      const createdDiv = `<div class="divsLastTask" width="${makeSizeValue()}" height="" background-color="${getRandomHexColor()}"></div>`;
+      const createdDiv = `<div class="divsLastTask" width="${makeSizeValue()}" height="30" background-color="${getRandomHexColor()}"></div>`;
       return createdDiv;
     })
     .join("");

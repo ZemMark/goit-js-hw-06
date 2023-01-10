@@ -15,7 +15,7 @@ function onFormSubmit(e) {
   // alert("please fill the password field!");
   // }
   if (inputEmail.value === "" || inputPassword.value === "") {
-    alert("please fill the password field!");
+    alert("please fill all fields!");
   }
   formDataShow();
   form.reset();
