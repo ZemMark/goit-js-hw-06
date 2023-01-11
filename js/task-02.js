@@ -10,13 +10,15 @@ const ingredients = [
 // const refs = {
 // targetContainer: document.querySelector("#ingredients"),
 // };
+const ingredientsArray = [];
 const targetContainer = document.querySelector("#ingredients");
 const makeIngredient = (ingredients) => {
   return ingredients.map((i) => {
     const item = document.createElement("li");
     item.classList.add("item");
     item.textContent = i;
-    targetContainer.append(item);
+    ingredientsArray.push(item);
   });
 };
-console.log(makeIngredient(ingredients));
+makeIngredient(ingredients);
+targetContainer.append(...ingredientsArray);
