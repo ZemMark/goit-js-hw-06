@@ -57,40 +57,72 @@ const btnDestroy = document.querySelector("[data-destroy]");
 const iterationArray = [];
 let initialSizeValue = 30;
 
-//
-function makeSizeValue() {
-  const iterableSizeValue = (initialSizeValue += 10);
-  return iterableSizeValue;
-}
+// //
+// function makeSizeValue() {
+//   const iterableSizeValue = (initialSizeValue += 10);
+//   return iterableSizeValue;
+// }
 
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+// const onCreateClick = function () {
+//   boxesContainer.insertAdjacentHTML("beforeend", makeDiv());
+// };
+// const onDestroyClick = () => {
+//   boxesContainer.innerHTML = "";
+//   iterationArray = [];
+// };
+// const makeIterationCountArray = function () {
+//   const iterations = input.value;
+//   for (let i = 0; i < iterations; i += 1) {
+//     iterationArray.push(i);
+//     // const divRef = `<div class="divsLastTask", width="", height=""></div>`;
+//   }
+//   return iterationArray;
+// };
+// const makeDiv = function (e) {
+//   makeIterationCountArray();
+//   return iterationArray
+//     .map((el) => {
+//       const createdDiv = `<div class="divsLastTask" width="${makeSizeValue()}" height="30" background-color="${getRandomHexColor()}"></div>`;
+//       return createdDiv;
+//     })
+//     .join("");
+// };
+// btnCreate.addEventListener("click", onCreateClick);
+// btnDestroy.addEventListener("click", onDestroyClick);
+btnCreate.addEventListener("click", onCreateClick);
+btnDestroy.addEventListener("click", onDesrtoyClick);
+function onDesrtoyClick() {
+  boxesContainer.innerHTML = "";
+  input.value = "";
+}
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
 }
-const onCreateClick = function () {
-  boxesContainer.insertAdjacentHTML("beforeend", makeDiv());
-};
-const onDestroyClick = () => {
-  boxesContainer.innerHTML = "";
-  iterationArray = [];
-};
-const makeIterationCountArray = function () {
-  const iterations = input.value;
-  for (let i = 0; i < iterations; i += 1) {
-    iterationArray.push(i);
-    // const divRef = `<div class="divsLastTask", width="", height=""></div>`;
+function onCreateClick() {
+  let sizeValue = 30;
+  for (let i = 0; i < input.value; i++) {
+    const divObj = {
+      width: `${sizeValue}px`,
+      height: `${sizeValue}px`,
+    };
+    console.log(sizeValue);
+    const divEl = document.createElement("div");
+    // divEl.setAttribute("width", divObj.width);
+    // divEl.setAttribute("height", divObj.height);
+    divEl.style.width = divObj.width;
+    divEl.style.height = divObj.width;
+    divEl.classList.add("divsLastTask");
+    divEl.style.display = "block";
+    divEl.style.backgroundColor = getRandomHexColor();
+    boxesContainer.append(divEl);
+    sizeValue += 10;
   }
-  return iterationArray;
-};
-const makeDiv = function (e) {
-  makeIterationCountArray();
-  return iterationArray
-    .map((el) => {
-      const createdDiv = `<div class="divsLastTask" width="${makeSizeValue()}" height="30" background-color="${getRandomHexColor()}"></div>`;
-      return createdDiv;
-    })
-    .join("");
-};
-btnCreate.addEventListener("click", onCreateClick);
-btnDestroy.addEventListener("click", onDestroyClick);
+  input.value = "";
+}
