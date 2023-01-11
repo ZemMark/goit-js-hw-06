@@ -5,31 +5,36 @@ const labelPassword = buttonSubmit.previousElementSibling;
 const inputEmail = labelEmail.firstElementChild;
 const inputPassword = labelPassword.firstElementChild;
 const inputs = document.querySelectorAll(".input");
+const formDataObject = {};
+
 form.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  // if (inputEmail.value === "") {
-  //   alert("please fill the email field!");
-  // } else if (inputPassword === "") {
-  // alert("please fill the password field!");
-  // }
-  if (inputEmail.value === "" || inputPassword.value === "") {
-    alert("please fill all fields!");
-  }
+
   formDataShow();
+  // const fd = new FormData(form);
+
+  // for (const item of fd) {
+  //   // console.log(item[0], item[1]);
+  //   const key = item[0];
+  //   const value = item[1];
+  //   formDataObject.item[0] = item[1];
+  // }
+
   form.reset();
-  // formData.forEach((email, password) => {
-  //   console.log(`email: ${email}, password: ${password}`);
-  // });
 }
 
 function formDataShow() {
-  const loginData = {
-    email: `${inputEmail.value}`,
-    password: `${inputPassword.value}`,
-  };
-  console.log(loginData);
+  if (inputEmail.value === "" || inputPassword.value === "") {
+    alert("please fill all fields!");
+  } else {
+    const loginData = {
+      email: `${inputEmail.value}`,
+      password: `${inputPassword.value}`,
+    };
+    console.log(loginData);
+  }
 }
 
 // buttonSubmit.addEventListener("click", onButtonSubmitClick);
