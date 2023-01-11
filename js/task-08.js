@@ -27,13 +27,14 @@ function onFormSubmit(e) {
 
 function formDataShow() {
   if (inputEmail.value === "" || inputPassword.value === "") {
-    alert("please fill all fields!");
+    return alert("please fill all fields!");
   } else {
     const loginData = {
       email: `${inputEmail.value}`,
       password: `${inputPassword.value}`,
     };
     console.log(loginData);
+    return loginData;
   }
 }
 
